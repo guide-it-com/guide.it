@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "jest.runMode": "on-demand",
+  "jest.jestCommandLine": "yarn test",
+  "jest.outputConfig": {
+    "revealOn": "demand"
+  },
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "testing.automaticallyOpenTestResults": "neverOpen",
+  "prettier.prettierPath": "./node_modules/prettier"
+}

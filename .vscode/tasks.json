@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Load workspace",
+      "type": "shell",
+      "command": "#${command:extension.updateAll}",
+      "runOptions": { "runOn": "folderOpen" }
+    }
+  ]
+}

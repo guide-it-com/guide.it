@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "guide.it",
+    "slug": "guide.it",
+    "version": "1.0.0",
+    "scheme": "guide.it",
+    "platforms": ["ios", "android", "macos"],
+    "ios": {
+      "bundleIdentifier": "com.it.guide"
+    },
+    "newArchEnabled": true,
+    "experiments": {
+      "reactCanary": true,
+      "reactCompiler": true
+    },
+    "android": {
+      "package": "com.it.guide"
+    }
+  }
+}

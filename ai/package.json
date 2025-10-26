@@ -1,0 +1,13 @@
+{
+  "name": "ai",
+  "private": true,
+  "exports": {
+    "./*": "./*"
+  },
+  "dependencies": {
+    "utils": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.2"
+  }
+}

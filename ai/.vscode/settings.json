@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "../../.yarn/sdks/typescript/lib",
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "jest.runMode": "on-demand",
+  "jest.jestCommandLine": "yarn test",
+  "jest.outputConfig": {
+    "revealOn": "demand"
+  },
+  "jestrunner.jestCommand": "yarn test",
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "prettier.prettierPath": "../node_modules/prettier"
+}

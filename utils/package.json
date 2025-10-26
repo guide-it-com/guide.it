@@ -1,0 +1,30 @@
+{
+  "name": "utils",
+  "private": true,
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "jsonwebtoken": "^9.0.2",
+    "openai": "^4.89.0",
+    "reflect-metadata": "^0.2.1"
+  },
+  "peerDependencies": {
+    "axios": "^1.6.5",
+    "jsonwebtoken": "^9.0.2",
+    "openai": "^4.89.0",
+    "reflect-metadata": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
+    "dotenv": "^16.4.5",
+    "jest": "29.7.0",
+    "jest-pnp-resolver": "^1.2.3",
+    "jest-tsd-transform": "^1.1.1",
+    "typescript": "~5.8.2"
+  },
+  "scripts": {
+    "test": "node ../utils/tests/run.js"
+  }
+}

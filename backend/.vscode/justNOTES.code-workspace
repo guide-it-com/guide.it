@@ -1,0 +1,18 @@
+{
+  "folders": [
+	{
+		"name": "✨ justNOTES",
+		"path": ".."
+	},
+	{
+		"name": "🚀 just-notes-backend",
+		"path": "../api"
+	}
+],
+  "settings": {
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "jest.showTerminalOnLaunch": false,
+    "jestrunner.enableYarnPnpSupport": true,
+    "typescript.enablePromptUseWorkspaceTsdk": true
+  }
+}
