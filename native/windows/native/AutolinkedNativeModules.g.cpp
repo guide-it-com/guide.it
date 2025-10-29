@@ -9,6 +9,9 @@
 // Includes from react-native-svg
 #include <winrt/RNSVG.h>
 
+// Includes from react-native-tts
+#include <winrt/RNTTS.h>
+
 namespace winrt::Microsoft::ReactNative
 {
 
@@ -18,6 +21,8 @@ void RegisterAutolinkedNativeModulePackages(winrt::Windows::Foundation::Collecti
     packageProviders.Append(winrt::RNScreens::ReactPackageProvider());
     // IReactPackageProviders from react-native-svg
     packageProviders.Append(winrt::RNSVG::ReactPackageProvider());
+    // IReactPackageProviders from react-native-tts
+    packageProviders.Append(winrt::RNTTS::ReactPackageProvider());
 }
 
 }
