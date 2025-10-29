@@ -1,4 +1,5 @@
 import styled, { css, cva } from "css-native";
+import { FormContext } from "frontend/components/ui/form";
 import React from "react";
 import { Pressable } from "react-native";
 import {
@@ -28,7 +29,6 @@ import {
   underline_offset,
   whitespace_nowrap,
 } from "tailwind-native";
-import { FormContext } from "frontend/components/ui/form";
 
 const buttonVariants = cva({
   variants: {
@@ -37,15 +37,14 @@ const buttonVariants = cva({
         bg`var(--primary)`,
         color`var(--primary-foreground)`,
         shadow_xs,
-        hover(bg`oklch(from var(--primary) l c h / 90%)`),
+        hover(opacity`90`),
       ],
       destructive: [
         bg`var(--destructive)`,
         text_white,
         shadow_xs,
-        hover(bg`oklch(from var(--destructive) l c h / 90%)`),
+        hover(opacity`90`),
         focus(ring`oklch(from var(--destructive) l c h / 20%)`),
-        bg`var(--destructive) 60%`,
       ],
       outline: [
         border,
@@ -57,7 +56,7 @@ const buttonVariants = cva({
         bg`var(--secondary)`,
         color`var(--secondary-foreground)`,
         shadow_xs,
-        hover(bg`oklch(from var(--secondary) l c h / 80%)`),
+        hover(opacity`80`),
       ],
       ghost: [hover(bg`var(--accent)`), hover(color`var(--accent-foreground)`)],
       link: [color`var(--primary)`, underline_offset`4`, hover(underline)],
@@ -86,16 +85,12 @@ const buttonVariants = cva({
     {
       variant: "outline",
       theme: "dark",
-      css: [
-        bg`var(--input) 30%`,
-        border`var(--input)`,
-        hover(bg`oklch(from var(--input) l c h / 50%)`),
-      ],
+      css: [bg`var(--input) 30%`, border`var(--input)`, hover(opacity`50`)],
     },
     {
       variant: "ghost",
       theme: "dark",
-      css: [hover(bg`oklch(from var(--accent) l c h / 50%)`)],
+      css: [hover(opacity`50`)],
     },
   ],
   defaultVariants: {
