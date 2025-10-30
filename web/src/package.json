@@ -10,7 +10,7 @@
     "@rn-primitives/select": "^1.2.0",
     "@rn-primitives/tooltip": "^1.1.0",
     "axios": "^1.9.0",
-    "css-native": "^1.3.23",
+    "css-native": "^1.3.26",
     "lucide-react-native": "^0.503.0",
     "react": "ˆ18.3.1",
     "react-dom": "^19.0.0",
@@ -20,7 +20,7 @@
     "react-native-svg": "~15.8.0",
     "react-native-tts": "^4.1.1",
     "solito": "4.4.1",
-    "tailwind-native": "~0.1.10"
+    "tailwind-native": "~0.1.11"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
