@@ -13325,9 +13325,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-native@npm:^1.3.23":
-  version: 1.3.23
-  resolution: "css-native@npm:1.3.23"
+"css-native@npm:^1.3.26":
+  version: 1.3.26
+  resolution: "css-native@npm:1.3.26"
   dependencies:
     color-parse: "npm:^2.0.2"
     color-space: "npm:^2.3.1"
@@ -13339,7 +13339,7 @@ __metadata:
     "@babel/core": ^7.0.0-0
     react: "*"
     react-native: "*"
-  checksum: 10/23430bd9ee968b4cfd5075e7757f77cddd4e1053f2c186370e973e36adc0238e902b6ac91cc5be69ddbc8ac5492b11756836eb1a017f1620a136ffc21c743673
+  checksum: 10/d26ac67544247b4a730c4028d87e8c96640eafb4b71bc54fd1f5d58a46cb96fe6ac29829aa369c8306b008b9c98c1058f72e3b779023d679f393372c6c5c67cd
   languageName: node
   linkType: hard
 
@@ -16307,7 +16307,7 @@ __metadata:
     "@rn-primitives/select": "npm:^1.2.0"
     "@rn-primitives/tooltip": "npm:^1.1.0"
     axios: "npm:^1.9.0"
-    css-native: "npm:^1.3.23"
+    css-native: "npm:^1.3.26"
     lucide-react-native: "npm:^0.503.0"
     react: ˆ18.3.1
     react-dom: "npm:^19.0.0"
@@ -16318,7 +16318,7 @@ __metadata:
     react-native-svg: "npm:~15.8.0"
     react-native-tts: "npm:^4.1.1"
     solito: "npm:4.4.1"
-    tailwind-native: "npm:~0.1.10"
+    tailwind-native: "npm:~0.1.11"
   peerDependencies:
     "@babel/core": ^7.24.0
     react: "*"
@@ -26678,14 +26678,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-native@npm:~0.1.10":
-  version: 0.1.10
-  resolution: "tailwind-native@npm:0.1.10"
+"tailwind-native@npm:~0.1.11":
+  version: 0.1.11
+  resolution: "tailwind-native@npm:0.1.11"
   peerDependencies:
     css-native: ~1.3.0
     react: "*"
     react-native: "*"
-  checksum: 10/9c3f6f5821d0e6c1fd9eb97bf34c66c76e560aee855463d627f07cf5cdd7429300be47749ac99aa7c6959d9f239009f68db55291dfdb10ac84baac96ea038eaa
+  checksum: 10/33036d78e287f58a811e41c163a97f10c4bc99bde548cf7c3092a166cc51a6e229faee3253014fbeae98f2db51e7d6a7f3fef32846b01d90396f71b21072060f
   languageName: node
   linkType: hard
 
