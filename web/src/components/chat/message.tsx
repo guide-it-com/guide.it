@@ -7,11 +7,13 @@ import { Platform } from "react-native";
 import {
   bg,
   bg_black,
+  bg_transparent,
   bg_white,
   flex,
   flex_col,
   gap,
   h,
+  hover,
   max_w,
   ml,
   mr,
@@ -87,7 +89,7 @@ const Message = ({
         type="button"
         onPress={handleTogglePlayback}
         variant="ghost"
-        css={w_full}
+        css={css(w_full, hover(bg_transparent))}
       >
         {isPlaying ? (
           <View
