@@ -19,7 +19,7 @@ import {
   items_start,
   justify_between,
   justify_center,
-  max_h_full,
+  max_h,
   min_w,
   mx,
   my,
@@ -28,8 +28,10 @@ import {
   overflow_x_hidden,
   overflow_y_auto,
   p,
+  pb,
   pl,
   pr,
+  pt,
   px,
   py,
   relative,
@@ -91,6 +93,7 @@ const triggerVariants = cva({
 const SelectTriggerWrapper = styled(
   SelectPrimitive.Trigger,
   triggerVariants,
+  relative,
   border`var(--input)`,
   border`0.5`,
   focus(
@@ -136,7 +139,14 @@ const SelectTrigger = React.forwardRef<
   <SelectTriggerWrapper ref={ref as any} {...props}>
     {children}
     <View
-      style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 32 }}
+      style={{
+        display: "flex",
+        position: "absolute",
+        right: 0,
+        top: 0,
+        bottom: 0,
+        width: 32,
+      }}
     >
       <ChevronDown size={16} color="gray" style={{ margin: "auto" }} />
     </View>
@@ -168,16 +178,12 @@ const contentVariants = cva({
     },
   ],
 });
-const ContentView = styled(
+const ContentOuterView = styled(
   View,
   contentVariants,
-  relative,
   z`50`,
-  max_h_full,
-  min_w`8rem`,
-  overflow_x_hidden,
-  overflow_y_auto,
   rounded_md,
+  pr`1`,
   border`0.5`,
   bg`var(--card)`,
   text`var(--card-foreground)`,
@@ -193,7 +199,19 @@ const ContentView = styled(
   // data-[side=right]:slide-in-from-left-2
   // data-[side=top]:slide-in-from-bottom-2
 );
-ContentView.displayName = "SelectContent";
+ContentOuterView.displayName = "SelectContentOuter";
+
+const ContentInnerView = styled(
+  View,
+  pl`1`,
+  pt`1`,
+  pb`1`,
+  max_h`50`,
+  min_w`8rem`,
+  overflow_x_hidden,
+  overflow_y_auto,
+);
+ContentInnerView.displayName = "SelectContentInner";
 
 const viewportVariants = cva({
   variants: {
@@ -216,9 +234,11 @@ const SelectContent = React.forwardRef<
 >(({ children, position = "popper", align = "center", ...props }, ref) => (
   <SelectPortal>
     <SelectPrimitive.Content ref={ref as any} position={position} align={align}>
-      <ContentView {...props}>
-        <Viewport position={position as any}>{children}</Viewport>
-      </ContentView>
+      <ContentOuterView {...props}>
+        <ContentInnerView>
+          <Viewport position={position as any}>{children}</Viewport>
+        </ContentInnerView>
+      </ContentOuterView>
     </SelectPrimitive.Content>
   </SelectPortal>
 ));
@@ -297,7 +317,11 @@ const SelectItem = React.forwardRef<
     children: React.ReactNode;
   }
 >(({ children, value, label, ...props }, ref) => (
-  <SelectPrimitive.Item value={value} label={label}>
+  <SelectPrimitive.Item
+    value={value}
+    label={label}
+    style={Platform.OS === "web" ? ({ outlineWidth: 0 } as any) : undefined}
+  >
     <SelectItemComponent ref={ref as any} {...props}>
       <ItemIndicatorWrapper>
         <SelectPrimitive.ItemIndicator>
@@ -324,6 +348,7 @@ SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 const SelectScrollUpButtonComponent = styled(
   View,
+  w_full,
   flex,
   items_center,
   justify_center,
@@ -346,6 +371,7 @@ SelectScrollUpButton.displayName = "SelectScrollUpButton";
 
 const SelectScrollDownButtonComponent = styled(
   View,
+  w_full,
   flex,
   items_center,
   justify_center,
