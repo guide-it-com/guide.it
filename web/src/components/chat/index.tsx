@@ -158,7 +158,14 @@ const Chat = React.forwardRef<
 
   React.useEffect(() => {
     setTimeout(() => {
-      scrollRef.current?.scrollToEnd({ animated: false });
+      if (scrollRef.current?.scrollToEnd) {
+        scrollRef.current?.scrollToEnd?.({ animated: false });
+      } else {
+        scrollRef.current?.scrollTo(
+          0,
+          (scrollRef.current as any)?.scrollHeight,
+        );
+      }
     }, 0);
   }, [messages]);
 
@@ -193,7 +200,9 @@ const Chat = React.forwardRef<
         <View css={css(flex, justify_center, gap`4`)}>
           <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
             <SelectTrigger>
-              <SelectValue placeholder="Select language" />
+              <SelectValue placeholder="Select language">
+                {selectedLanguage?.label}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent>
               {languages.map((language) => (
@@ -209,7 +218,9 @@ const Chat = React.forwardRef<
           </Select>
           <Select value={selectedVoice} onValueChange={handleVoiceChange}>
             <SelectTrigger>
-              <SelectValue placeholder="Select voice" />
+              <SelectValue placeholder="Select voice">
+                {selectedVoice?.label}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent>
               {voices
