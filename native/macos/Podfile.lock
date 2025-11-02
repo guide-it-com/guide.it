@@ -1515,6 +1515,27 @@ PODS:
   - RNSVG (15.9.0):
     - React-Core
   - SocketRocket (0.7.1)
+  - tts (1.0.0):
+    - DoubleConversion
+    - glog
+    - RCT-Folly (= 2024.10.14.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -1583,6 +1604,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native-macos/ReactCommon`)
   - RNSVG (from `../node_modules/react-native-svg/RNSVG.podspec`)
   - SocketRocket (from `../node_modules/react-native-macos/third-party-podspecs/SocketRocket.podspec`)
+  - tts (from `../../web/src/lib/tts/macos/tts.podspec`)
   - Yoga (from `../node_modules/react-native-macos/ReactCommon/yoga`)
 
 EXTERNAL SOURCES:
@@ -1712,6 +1734,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg/RNSVG.podspec"
   SocketRocket:
     :podspec: "../node_modules/react-native-macos/third-party-podspecs/SocketRocket.podspec"
+  tts:
+    :path: "../../web/src/lib/tts/macos/tts.podspec"
   Yoga:
     :path: "../node_modules/react-native-macos/ReactCommon/yoga"
 
@@ -1779,8 +1803,9 @@ SPEC CHECKSUMS:
   ReactCommon: 86e5c46fa7390636cdd50b73007606bf9ab4a00f
   RNSVG: bb4bfcb8ec723a6f34b074a1b7cd40ee35246fe5
   SocketRocket: 03f7111df1a343b162bf5b06ead333be808e1e0a
+  tts: cfbe5776fab277d350756f99a5ce53244706ddac
   Yoga: 5d2a8be9184b7fdf93665d4ee606dc4946343e2e
 
-PODFILE CHECKSUM: a1c47e0a8c2d0b67d91540e2651ec8241c68b199
+PODFILE CHECKSUM: 5d388795b3b6f071380e393956c288cc80c550d3
 
 COCOAPODS: 1.16.2
