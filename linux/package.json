@@ -1,0 +1,62 @@
+{
+  "name": "linux",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/main.js",
+  "type": "module",
+  "homepage": "https://github.com/guide-it-com/guide.it",
+  "author": {
+    "name": "TexKiller",
+    "email": "3438226+TexKiller@users.noreply.github.com",
+    "url": "https://guide.it.com"
+  },
+  "build": {
+    "asarUnpack": "**/*.node",
+    "afterPack": "./src/afterPack.js",
+    "files": [
+      "src/**/*",
+      {
+        "from": "node_modules",
+        "to": "node_modules"
+      },
+      {
+        "from": "../web/out",
+        "to": "web"
+      },
+      "package.json"
+    ],
+    "linux": {
+      "artifactName": "guide.it-${arch}.${ext}",
+      "category": "Office;Productivity;Business;Productivity",
+      "description": "guide.it",
+      "executableName": "guide.it",
+      "icon": "resources/icon.png",
+      "target": [
+        {
+          "arch": "x64",
+          "target": "AppImage"
+        },
+        {
+          "arch": "x64",
+          "target": "deb"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "dev:linux": "electron .",
+    "dev:web": "cd ../web && LINUX=true yarn dev",
+    "dev": "run-p dev:linux dev:web",
+    "build:linux": "electron-builder",
+    "build:web": "cd ../web && LINUX=true yarn build",
+    "build": "yarn build:web && yarn build:linux"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "26.0.12",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "electron-serve": "^3.0.0"
+  }
+}
