@@ -60,7 +60,7 @@ const Select = styled(SelectPrimitive.Root)``;
 
 const SelectGroup = styled(SelectPrimitive.Group)``;
 
-const SelectValue = styled(SelectPrimitive.Value)``;
+const SelectValue = styled(SelectPrimitive.Value, text`var(--foreground)`);
 
 const SelectPortal = SelectPrimitive.Portal;
 
