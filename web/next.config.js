@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-undef
+const isLinux = !!process.env.LINUX;
+
 /**
  * @type {import('next').NextConfig}
  */
@@ -23,6 +26,9 @@ const withWebpack = {
     };
 
     config.resolve.extensions = [
+      ...(isLinux
+        ? [".linux.js", ".linux.jsx", ".linux.ts", ".linux.tsx"]
+        : []),
       ".web.js",
       ".web.jsx",
       ".web.ts",
@@ -49,6 +55,10 @@ const withTurpopack = {
         "react-native-web/dist/vendor/react-native/NativeEventEmitter",
     },
     resolveExtensions: [
+      ...(isLinux
+        ? [".linux.js", ".linux.jsx", ".linux.ts", ".linux.tsx"]
+        : []),
+
       ".web.js",
       ".web.jsx",
       ".web.ts",
@@ -89,4 +99,14 @@ module.exports = {
 
   ...withWebpack,
   ...withTurpopack,
+
+  // eslint-disable-next-line no-undef
+  ...(isLinux
+    ? {
+        output: "export",
+        images: {
+          unoptimized: true,
+        },
+      }
+    : {}),
 };
