@@ -1,6 +1,8 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
 import serve from "electron-serve";
 import { join } from "node:path";
+import { readdirSync, existsSync } from "node:fs";
+import { createRequire } from "node:module";
 
 app.disableHardwareAcceleration();
 
@@ -33,7 +35,42 @@ const createWindow = () => {
   }
 };
 
+// Dynamically load API modules and set up IPC handlers
+const setupAPIs = () => {
+  const require = createRequire(import.meta.url);
+  const apisDir = join(import.meta.dirname, "apis");
+
+  if (existsSync(apisDir)) {
+    const apis = readdirSync(apisDir);
+
+    for (const api of apis) {
+      const apiPath = join(apisDir, api);
+      try {
+        const apiModule = require(apiPath);
+        for (const [functionName, func] of Object.entries(apiModule)) {
+          if (typeof func === "function") {
+            const channel = `api:${api}:${functionName}`;
+            ipcMain.handle(channel, async (event, ...args) => {
+              try {
+                return await func(...args);
+              } catch (error) {
+                // eslint-disable-next-line no-undef
+                console.error(`Error executing ${api}.${functionName}:`, error);
+                throw error;
+              }
+            });
+          }
+        }
+      } catch (error) {
+        // eslint-disable-next-line no-undef
+        console.error(`Error loading API module ${api}:`, error);
+      }
+    }
+  }
+};
+
 app.on("ready", () => {
+  setupAPIs();
   createWindow();
 });
 
